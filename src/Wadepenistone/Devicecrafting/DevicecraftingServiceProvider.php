@@ -16,5 +16,9 @@ class DevicecraftingServiceProvider extends ServiceProvider
         $this->loadMigrationsFrom("${rootDir}/database/migrations");
         $this->loadRoutesFrom("${rootDir}/routes/web.php");
       	$this->loadViewsFrom("${rootDir}/resources/views", 'devicecrafting');
+
+        $this->publishes([
+            "${rootDir}/resources/assets/sass" => resource_path('assets/sass')
+        ], 'sass');
     }
 }
