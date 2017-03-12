@@ -18,7 +18,15 @@ class DevicecraftingServiceProvider extends ServiceProvider
             require "${rootDir}/routes/web.php";
         }
 
-        // Set view path
+        $this->hooks($rootDir);
+    }
+
+    /**
+     * Set application hooks for specific resources
+     */
+    private function hooks($rootDir)
+    {
+        $this->loadMigrationsFrom("${rootDir}/database/migrations");
       	$this->loadViewsFrom("${rootDir}/resources/views", 'devicecrafting');
     }
 }
