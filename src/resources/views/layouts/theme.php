@@ -1,10 +1,10 @@
 <html>
     <head>
-        <title>Account - Device Crafting</title>
+        <title><?php echo $title; ?></title>
     </head>
     <body>
         <div>
-            Content goes here
+            <?php echo $content; ?>
         </div>
     </body>
 </html>

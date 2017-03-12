@@ -12,5 +12,5 @@
 */
 
 Route::group(['namespace' => 'Wadepenistone\Devicecrafting\Http\Controllers'], function() {
-    Route::get('/my-account', 'InitialController@index');
+    Route::get('/my-account', 'AccountController@index')->name('my_account');
 });
