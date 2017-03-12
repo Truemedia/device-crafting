@@ -6,6 +6,6 @@ class InitialController extends Controller
 {
 	public function index()
     {
-        echo 'reached controller method';
+        return view('devicecrafting::index');
     }
 }

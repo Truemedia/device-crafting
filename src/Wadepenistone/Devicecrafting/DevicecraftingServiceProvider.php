@@ -17,5 +17,8 @@ class DevicecraftingServiceProvider extends ServiceProvider
         if (!$this->app->routesAreCached()) {
             require "${rootDir}/routes/web.php";
         }
+
+        // Set view path
+      	$this->loadViewsFrom("${rootDir}/resources/views", 'devicecrafting');
     }
 }
