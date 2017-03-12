@@ -17,5 +17,8 @@
             "Wadepenistone\\Devicecrafting\\": "src/"
         }
     },
-    "minimum-stability": "stable"
+    "minimum-stability": "stable",
+    "config": {
+        "preferred-install": "source"
+    }
 }
