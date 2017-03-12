@@ -4,7 +4,7 @@ use Wadepenistone\Devicecrafting\Http\Controllers\Extendable\CoreController as C
 
 class AccountController extends Controller
 {
-	protected $layout = 'devicecrafting::layouts.theme';
+	protected $layout = 'devicecrafting::layouts.theme.layout';
 
 	public function index()
     {
