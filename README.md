@@ -13,7 +13,18 @@ Before installing this game, you will need the following software dependencies p
 Once these have been setup on your machine, you will be able to install this game via the instructions below
 
 ### Installation
-(To be updated)
+Add the following code to the `require` section of your composer.json file inside the root directory of your Laravel project:
+
+    "wadepenistone/devicecrafting": "dev-master"
+    
+Inside the same also add the following code to the repositories section (create repositories section if it does not exist):
+
+    {
+        "type":"vcs",
+        "url": "git@github.com:Truemedia/device-crafting.git"
+    }
+    
+After than ssh into your vagrant box and run `composer update` followed by `composer dump-autoload -o` in the root folder of your project.
 
 ### Running
 (To be updated)
