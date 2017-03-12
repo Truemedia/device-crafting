@@ -16,5 +16,6 @@
         "psr-0": {
             "Wadepenistone\\Devicecrafting\\": "src/"
         }
-    }
+    },
+    "minimum-stability": "stable"
 }
