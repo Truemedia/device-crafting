@@ -26,9 +26,13 @@ Inside the same also add the following code to the repositories section (create 
 
 After than ssh into your vagrant box and run `composer update` followed by `composer dump-autoload -o` in the root folder of your project.
 
-Now you will need to include the service provider for this package inside the app/config.php file of your Laravel instance. Find the providers section of this file and add the following to the end of the array:
+Now you will need to include the service provider for this package inside the app/config.php file of your Laravel instance. Find the providers section of this file and add the items following to the end of the array:
 
+    ProAI\Handlebars\HandlebarsServiceProvider::class,
     Wadepenistone\Devicecrafting\DevicecraftingServiceProvider::class,
+
+With the providers set you will now need to publish files for this package that will be copied from the package into the folders of the main application.
+To do this simply run `php artisan vendor:publish`
 
 ### Running
 (To be updated)
