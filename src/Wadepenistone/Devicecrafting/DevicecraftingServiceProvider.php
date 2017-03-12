@@ -11,6 +11,11 @@ class DevicecraftingServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        die('Booting new service provider');
+        $rootDir = __DIR__ . '/../../';
+
+        // Include routes
+        if (!$this->app->routesAreCached()) {
+            require "${rootDir}/routes/web.php";
+        }
     }
 }
