@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/my-account', function() {
-    echo 'hello world';
+Route::group(['namespace' => 'Wadepenistone\Devicecrafting\Http\Controllers'], function() {
+    Route::get('/my-account', 'InitialController@index');
 });

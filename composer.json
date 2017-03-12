@@ -12,6 +12,7 @@
     },
     "autoload": {
         "classmap": [
+            "src/Http/Controllers"
         ],
         "psr-0": {
             "Wadepenistone\\Devicecrafting\\": "src/"
