@@ -13,20 +13,8 @@ class DevicecraftingServiceProvider extends ServiceProvider
     {
         $rootDir = __DIR__ . '/../../';
 
-        // Include routes
-        if (!$this->app->routesAreCached()) {
-            require "${rootDir}/routes/web.php";
-        }
-
-        $this->hooks($rootDir);
-    }
-
-    /**
-     * Set application hooks for specific resources
-     */
-    private function hooks($rootDir)
-    {
         $this->loadMigrationsFrom("${rootDir}/database/migrations");
+        $this->loadRoutesFrom("${rootDir}/routes/web.php");
       	$this->loadViewsFrom("${rootDir}/resources/views", 'devicecrafting');
     }
 }
