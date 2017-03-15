@@ -1,10 +1,13 @@
 <header class="header">
     <h1 class="app__name">{{ title }}</h1>
-    {{#if isLoggedIn}}
+    {{#if (isLoggedIn)}}
         {{! Post auth }}
         <div class="post-auth">
             <p class="post-auth__info">{{_ 'Logged in as'}} {{ name }}{{_ '.'}}</p>
-            <a class="post-auth__logout" href="{{route 'logout'}}">{{_ 'Logout'}}</a>
+            <form method="POST" action="{{route 'logout'}}">
+                {{{ csrf_field }}}
+                <button type="submit" class="post-auth__logout">{{_ 'Logout'}}</button>
+            </form>
         </div>
     {{else}}
         {{! Pre auth }}
