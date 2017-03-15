@@ -1,3 +1,22 @@
 // -----------------------------------------------------------------------------
 // This file contains all styles related to the header of the site/application.
 // -----------------------------------------------------------------------------
+.header {
+    background-color: color(primary);
+
+    .app__name {
+        float: left;
+    }
+
+    .pre-auth, .post-auth {
+        float: right;
+    }
+
+    .pre-auth {
+        &__nav {
+            .nav__link {
+                background-color: color(tertiary);
+            }
+        }
+    }
+}

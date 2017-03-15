@@ -28,3 +28,12 @@
 @function font($path, $base: $base-url) {
   @return asset($base, 'fonts/', $path);
 }
+
+@function color($key) {
+  @if map-has-key($palette, $key) {
+    @return map-get($palette, $key);
+  }
+
+  @warn "Unknown `#{$key}` in $colors.";
+  @return null;
+}
