@@ -1,15 +1,18 @@
 <header class="header">
     <h1 class="app__name">{{ title }}</h1>
-    {{! Pre auth }}
-    <div class="pre-auth">
-        <nav class="pre-auth__nav">
-            <a class="nav__link" href="#">{{_ 'Register'}}</a>
-            <a class="nav__link" href="#">{{_ 'Login'}}</a>
-        </nav>
-    </div>
-    {{! Post auth }}
-    <div class="post-auth">
-        <p class="post-auth__info">{{_ 'Logged in as'}} {{ name }}{{_ '.'}}</p>
-        <a class="post-auth__logout" href="#">{{_ 'Logout'}}</a>
-    </div>
+    {{#if isLoggedIn}}
+        {{! Post auth }}
+        <div class="post-auth">
+            <p class="post-auth__info">{{_ 'Logged in as'}} {{ name }}{{_ '.'}}</p>
+            <a class="post-auth__logout" href="{{route 'logout'}}">{{_ 'Logout'}}</a>
+        </div>
+    {{else}}
+        {{! Pre auth }}
+        <div class="pre-auth">
+            <nav class="pre-auth__nav">
+                <a class="nav__link" href="{{route 'register'}}">{{_ 'Register'}}</a>
+                <a class="nav__link" href="{{route 'login'}}">{{_ 'Login'}}</a>
+            </nav>
+        </div>
+    {{/if}}
 </header>
