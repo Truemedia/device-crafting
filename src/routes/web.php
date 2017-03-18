@@ -13,6 +13,7 @@
 
  Route::group(['middleware' => 'web'], function() {
     Route::group(['namespace' => 'Wadepenistone\Devicecrafting\Http\Controllers'], function() {
+        Route::get('/', 'LeaderboardController@index')->name('leaderboard');
         Route::group(['middleware' => 'auth'], function() {
             Route::get('/my-account', 'AccountController@index')->name('my_account');
         });

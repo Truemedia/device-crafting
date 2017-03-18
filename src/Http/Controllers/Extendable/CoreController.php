@@ -5,6 +5,7 @@ use Illuminate\Routing\Controller as Controller;
 class CoreController extends Controller
 {
 	protected $packageName = 'devicecrafting'; // TODO: Work this out automatically
+	protected $layout = 'devicecrafting::layouts.theme.layout';
 
     /**
 	 * Wrap calls to automatically return content
