@@ -6,11 +6,12 @@ class LeaderboardController extends Controller
 {
 	public function index()
     {
+		// TODO: Replace placeholder data
 		$battles = [
 			0 => [
-				
+
 			]
-		]; // TODO: Replace placeholder data
+		];
         $this->setContent( compact('battles') );
     }
 }
