@@ -41,11 +41,12 @@
             </tr>
         </thead>
         <tbody>
+            {{#each players}}
             <tr>
                 <td>
                     <p class="contestant">
                         <span class="contestant__color-scheme" style="background-color: #f00;"></span>
-                        <span class="contestant__name">Robot 1</span>
+                        <span class="contestant__name">{{ name }}</span>
                     </p>
                 </td>
                 <td>
@@ -58,5 +59,6 @@
                     3
                 </td>
             </tr>
+            {{/each}}
     </table>
 </div>

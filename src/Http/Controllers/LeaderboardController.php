@@ -1,6 +1,7 @@
 <?php namespace Wadepenistone\Devicecrafting\Http\Controllers;
 
 use Wadepenistone\Devicecrafting\Http\Controllers\Extendable\CoreController as Controller;
+use Wadepenistone\Devicecrafting\Models\Robot;
 
 class LeaderboardController extends Controller
 {
@@ -12,6 +13,7 @@ class LeaderboardController extends Controller
 
 			]
 		];
-        $this->setContent( compact('battles') );
+		$players = Robot::all()->take(10);
+        $this->setContent( compact('battles', 'players') );
     }
 }
