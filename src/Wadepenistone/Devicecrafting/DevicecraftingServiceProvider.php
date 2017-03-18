@@ -22,6 +22,10 @@ class DevicecraftingServiceProvider extends ServiceProvider
         $this->publishes([
             "${rootDir}/resources/assets/sass" => resource_path('assets/sass')
         ], 'sass');
+        // Config
+        $this->publishes([
+            "${rootDir}/config/handlebars.php" => config_path('handlebars.php')
+        ], 'config');
         // Database
         $this->publishes([
             "${rootDir}/database/factories/" => database_path('factories')
