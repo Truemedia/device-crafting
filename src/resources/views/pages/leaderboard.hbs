@@ -1,5 +1,5 @@
 <div class="leaderboard__section leaderboard__section--battles">
-    <h2>{{_ 'Latest'}} {{ battlesPerSection }} {{_ 'fighting results'}}</h2>
+    <h2>{{_ 'Latest'}} {{ battles.length }} {{_ 'fighting results'}}</h2>
     {{#if battles}}
     <table>
         <thead>
@@ -38,8 +38,8 @@
 </div>
 
 <div class="leaderboard__section leaderboard__section--players">
-    <h2>{{_ 'Top'}} {{ playersPerSection }} {{_ 'Robots'}}</h2>
-    {{#if players}}
+    <h2>{{_ 'Top'}} {{ robots.length }} {{_ 'Robots'}}</h2>
+    {{#if robots}}
     <table>
         <thead>
             <tr>
@@ -50,7 +50,7 @@
             </tr>
         </thead>
         <tbody>
-            {{#each players}}
+            {{#each robots}}
             <tr>
                 <td>
                     <p class="contestant">

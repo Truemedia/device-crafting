@@ -7,13 +7,10 @@ class LeaderboardController extends Controller
 {
 	public function index()
     {
-		$battlesPerSection = 5;
-		$playersPerSection = 10;
+		$pagination = config('devicecrafting.pagination');
+		$battles = Battle::all()->take($pagination['battles']);
+		$robots = Robot::all()->take($pagination['robots']);
 
-		$battles = Battle::all()->take($battlesPerSection);
-		$players = Robot::all()->take($playersPerSection);
-        $this->setContent( compact(
-			'battles', 'players', 'battlesPerSection', 'playersPerSection'
-		));
+        $this->setContent( compact('battles', 'robots') );
     }
 }

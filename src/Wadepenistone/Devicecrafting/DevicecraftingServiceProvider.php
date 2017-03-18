@@ -13,6 +13,7 @@ class DevicecraftingServiceProvider extends ServiceProvider
     {
         $rootDir = __DIR__ . '/../../';
 
+        $this->mergeConfigFrom("${rootDir}/config/devicecrafting.php", 'devicecrafting');
         $this->loadMigrationsFrom("${rootDir}/database/migrations");
         $this->loadRoutesFrom("${rootDir}/routes/web.php");
       	$this->loadViewsFrom("${rootDir}/resources/views", 'devicecrafting');
