@@ -1,5 +1,6 @@
 <div class="leaderboard__section leaderboard__section--battles">
     <h2>{{_ 'Latest'}} {{ battlesPerSection }} {{_ 'fighting results'}}</h2>
+    {{#if battles}}
     <table>
         <thead>
             <tr>
@@ -7,26 +8,33 @@
             </tr>
         </thead>
         <tbody>
+            {{#each battles}}
             <tr>
                 <td class="contestants">
                     {{! Challenger}}
                     <p class="contestant">
                         <span class="contestant__color-scheme" style="background-color: #f00;"></span>
-                        <span class="contestant__name">Robot 1</span>
+                        <span class="contestant__name">Robot {{ attacker_id }}</span>
                     </p>
                     {{! Defender}}
                     <p class="contestant">
                         <span class="contestant__color-scheme" style="background-color: #00f;"></span>
-                        <span class="contestant__name">Robot 6</span>
+                        <span class="contestant__name">Robot {{ defender_id }}</span>
                     </p>
                 </td>
                 <td class="results">
                     <p class="results__outcome">
-                        {{_ 'Winner:'}} Robot 1
+                        {{_ 'Winner:'}} Robot {{ winner_id }}
                     </p>
                 </td>
             </tr>
+            {{/each}}
     </table>
+    {{else}}
+    <p>
+        {{_ 'No battles available'}}
+    </p>
+    {{/if}}
 </div>
 
 <div class="leaderboard__section leaderboard__section--players">
