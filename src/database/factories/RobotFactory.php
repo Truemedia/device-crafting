@@ -1,5 +1,6 @@
 <?php
 
+use App\User;
 use Wadepenistone\Devicecrafting\Models\Robot;
 
 $factory->define(Robot::class, function (Faker\Generator $faker) {

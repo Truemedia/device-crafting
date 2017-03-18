@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class Robot extends Model
+class Battle extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -10,6 +10,6 @@ class Robot extends Model
      * @var array
      */
     protected $fillable = [
-        'owner_id', 'name', 'avatar', 'weight', 'power', 'speed'
+        'attacker_id', 'defender_id', 'winner_id'
     ];
 }

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\User;
 use Wadepenistone\Devicecrafting\Models\Robot;
 
 class RobotsTableSeeder extends Seeder
@@ -12,9 +13,9 @@ class RobotsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Robot::class, 10)->create()->each(function($robot) {
-            // TODO: Attach users here
-
+        factory(Robot::class, 10)->make()->each(function($robot) {
+            $user = User::inRandomOrder()->first();
+            $robot['owner_id'] = $user->id;
             $robot->save();
         });
     }

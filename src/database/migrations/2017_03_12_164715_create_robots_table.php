@@ -17,7 +17,8 @@ class CreateRobotsTable extends Migration
     {
         Schema::create($this->table, function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->integer('owner_id')->comment('Owner (User ID)');
+            $table->string('name')->comment('Robot name');
             $table->string('avatar')->nullable()->comment('URL');
             $table->float('weight')->comment('Grams (SI unit)');
             $table->float('power')->comment('Fictional metric');

@@ -19,7 +19,7 @@ class CreateBattlesTable extends Migration
             $table->increments('id');
             $table->integer('attacker_id')->comment('Attacker (Robot ID)');
             $table->integer('defender_id')->comment('Defender (Robot ID)');
-            $table->float('winner_id')->comment('Winner (User ID)');
+            $table->integer('winner_id')->comment('Winner (Robot ID)');
             $table->timestamps();
         });
     }

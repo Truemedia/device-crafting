@@ -30,7 +30,8 @@
 </div>
 
 <div class="leaderboard__section leaderboard__section--players">
-    <h2>{{_ 'Top'}} {{ playersPerSection }} {{_ 'Devices'}}</h2>
+    <h2>{{_ 'Top'}} {{ playersPerSection }} {{_ 'Robots'}}</h2>
+    {{#if players}}
     <table>
         <thead>
             <tr>
@@ -61,4 +62,9 @@
             </tr>
             {{/each}}
     </table>
+    {{else}}
+    <p>
+        {{_ 'No robots available'}}
+    </p>
+    {{/if}}
 </div>
