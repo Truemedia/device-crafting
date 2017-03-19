@@ -12,11 +12,17 @@
 */
 
  Route::group(['middleware' => 'web'], function() {
+    // Custom structuring
     Route::group(['namespace' => 'Wadepenistone\Devicecrafting\Http\Controllers'], function() {
         Route::get('/', 'LeaderboardController@index')->name('leaderboard');
         Route::group(['middleware' => 'auth'], function() {
             Route::get('/my-account', 'AccountController@index')->name('my_account');
             Route::get('/fight', 'BattleController@choose')->name('fight.choose');
         });
+    });
+    // Resources
+    Route::group(['namespace' => 'Wadepenistone\Devicecrafting\Http\Controllers\Resources'], function() {
+        // Robots
+        Route::resource('robot', 'RobotController');
     });
 });
