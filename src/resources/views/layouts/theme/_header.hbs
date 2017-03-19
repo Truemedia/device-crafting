@@ -1,6 +1,11 @@
 <header class="header">
     <h1 class="app__name">{{ title }}</h1>
     {{#if (isLoggedIn)}}
+        {{! Calls to action }}
+        <nav class="ctas">
+            <a data-route="robot.index" href="#" class="cta">{{_ 'My robots'}}</a>
+            <a href="{{route 'fight.choose'}}" class="cta">{{_ 'Fight!'}}</a>
+        </nav>
         {{! Post auth }}
         <div class="post-auth">
             <p class="post-auth__info">{{_ 'Logged in as'}} {{ name }}{{_ '.'}}</p>

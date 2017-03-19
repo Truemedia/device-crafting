@@ -16,7 +16,7 @@
         Route::get('/', 'LeaderboardController@index')->name('leaderboard');
         Route::group(['middleware' => 'auth'], function() {
             Route::get('/my-account', 'AccountController@index')->name('my_account');
-            Route::get('/fight', 'BattleController@choose');
+            Route::get('/fight', 'BattleController@choose')->name('fight.choose');
         });
     });
 });
