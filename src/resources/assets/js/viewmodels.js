@@ -3,7 +3,8 @@ var RobotViewModel = new Vue({
     data: {
         robots: [],
         robot: {},
-        mode: null
+        mode: null,
+        resource: 'robot'
     },
     delimiters: ['${', '}'], // Template literal
     mounted: function() {
@@ -19,8 +20,16 @@ var RobotViewModel = new Vue({
         /**
           * CRUDL
           */
-        create: function() {
-
+        create: function(e) {
+            e.preventDefault();
+            let resource = this.resource;
+            fetch(`/${resource}`, {
+                method: 'post',
+                body: new FormData( e.target.closest('form') )
+            })
+            .then( (res) => {
+                console.log(res);
+            });
         },
         read: function() {
 
@@ -32,10 +41,11 @@ var RobotViewModel = new Vue({
 
         },
         list: function() {
-            fetch('/robot')
+            let resource = this.resource;
+            fetch(`/${resource}`)
                 .then( (res) => { return res.json(); })
-                .then( (json) => {
-                    this.robots = json;
+                .then( (robots) => {
+                    this.robots = robots;
                     this.mode = 'list';
                 });
         },

@@ -48,14 +48,13 @@ Account page
                 <input type="number" name="speed" id="speed" placeholder="0.00" v-model="robot.speed" min="0" max="30" step="0.01" />
             </fieldset>
             <fielset>
+                {{{ csrf_field }}}
                 <a v-on:click="cancel()">{{_ 'Cancel'}}</a>
-                <button>
-                    <span v-if="mode == 'create'">
-                        {{_ 'Create'}}
-                    </span>
-                    <span v-if="mode == 'update'">
-                        {{_ 'Update'}}
-                    </span>
+                <button v-if="mode == 'create'" v-on:click="create($event)">
+                    {{_ 'Create'}}
+                </button>
+                <button v-if="mode == 'update'" v-on:click="update($event)">
+                    {{_ 'Update'}}
                 </button>
             </fieldset>
         </form>
