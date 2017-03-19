@@ -1,32 +1,64 @@
 Account page
 <div data-vm="robot">
     <div class="crudl">
-        <div class="crudl___controls">
-            <h2>{{_ 'My Robots'}}</h2>
-            <a v-on:click="create()">{{_ 'Add'}}</a>
-            <a v-on:click="importer()">{{_ 'Import'}}</a>
+        <div class="crudl__list" v-if="mode == 'list'">
+            <div class="list___controls">
+                <h2>{{_ 'My Robots'}}</h2>
+                <a v-on:click="form()">{{_ 'Add'}}</a>
+                <a v-on:click="importer()">{{_ 'Import'}}</a>
+            </div>
+            <table v-if="robots">
+                <thead>
+                    <tr>
+                        <td>{{_ 'Robot Name'}}</td>
+                        <td>{{_ 'Speed'}}</td>
+                        <td>{{_ 'Weight'}}</td>
+                        <td>{{_ 'Power'}}</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="robot in robots">
+                        <td>
+                            ${robot.name}
+                        </td>
+                        <td>
+                            <a v-on:click="form(robot.id)">{{_ 'Edit'}}</a>
+                            <a v-on:click="destroy(robot.id)">{{_ 'Delete'}}</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p v-else>
+                {{_ 'No robots available'}}
+            </p>
         </div>
-        <table>
-            <thead>
-                <tr>
-                    <td>{{_ 'Robot Name'}}</td>
-                    <td>{{_ 'Speed'}}</td>
-                    <td>{{_ 'Weight'}}</td>
-                    <td>{{_ 'Power'}}</td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="robot in robots">
-                    <td>
-                        ${robot.name}
-                    </td>
-                    <td>
-                        <a v-on:click="update(robot.id)">{{_ 'Edit'}}</a>
-                        <a v-on:click="destroy(robot.id)">{{_ 'Delete'}}</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <form class="crudl__form" v-if="mode == 'create' || mode == 'update'">
+            <fieldset class="robot__appearance">
+                <label for="name">{{_ 'Name'}}</label>
+                <input type="text" name="name" id="name" placeholder="{{_ 'Enter the name'}}" v-model="robot.name" />
+                <label for="avatar">{{_ 'Avatar'}}</label>
+                <input type="file" name="name" id="avatar" placeholder="{{_ 'Upload an avatar'}}" v-model="robot.avatar" />
+            </fieldset>
+            <fieldset class="robot__stats">
+                <label for="name">{{_ 'Weight'}}</label>
+                <input type="number" name="weight" id="weight" placeholder="0.00" v-model="robot.weight" min="0" max="30" step="0.01" />
+                <label for="name">{{_ 'Power'}}</label>
+                <input type="number" name="power" id="power" placeholder="0.00" v-model="robot.power" min="0" max="30" step="0.01" />
+                <label for="name">{{_ 'Speed'}}</label>
+                <input type="number" name="speed" id="speed" placeholder="0.00" v-model="robot.speed" min="0" max="30" step="0.01" />
+            </fieldset>
+            <fielset>
+                <a v-on:click="cancel()">{{_ 'Cancel'}}</a>
+                <button>
+                    <span v-if="mode == 'create'">
+                        {{_ 'Create'}}
+                    </span>
+                    <span v-if="mode == 'update'">
+                        {{_ 'Update'}}
+                    </span>
+                </button>
+            </fieldset>
+        </form>
     </div>
 </div>
 <script type="text/javascript" src="/js/viewmodels.js"></script>
