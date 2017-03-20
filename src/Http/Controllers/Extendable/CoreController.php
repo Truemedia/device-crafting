@@ -86,6 +86,7 @@ class CoreController extends Controller
 
 				if ($data == null) { $data = []; }
 
+				$this->layout->user = \Auth::user();
 				$this->layout->content = view($view, $data); // HTML
 				$this->layout->content->title = $this->layout->title;
 			break;

@@ -3,6 +3,7 @@
 // -----------------------------------------------------------------------------
 .header {
     background-color: color(primary);
+    padding: 10px 4%;
 
     .app__name {
         float: left;
@@ -17,6 +18,13 @@
             .nav__link {
                 background-color: color(tertiary);
             }
+        }
+    }
+
+    .ctas {
+        a:link, a:visited, a:hover, a:active {
+            color: #00f;
+            padding: 10px;
         }
     }
 }

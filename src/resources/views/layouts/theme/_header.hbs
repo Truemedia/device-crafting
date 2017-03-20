@@ -8,7 +8,7 @@
         </nav>
         {{! Post auth }}
         <div class="post-auth">
-            <p class="post-auth__info">{{_ 'Logged in as'}} {{ name }}{{_ '.'}}</p>
+            <p class="post-auth__info">{{_ 'Logged in as'}} {{ user.name }}{{_ '.'}}</p>
             <form method="POST" action="{{route 'logout'}}">
                 {{{ csrf_field }}}
                 <button type="submit" class="post-auth__logout">{{_ 'Logout'}}</button>
@@ -23,4 +23,5 @@
             </nav>
         </div>
     {{/if}}
+    <div class="clearfix"></div>
 </header>
