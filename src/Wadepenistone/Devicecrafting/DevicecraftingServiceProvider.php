@@ -33,5 +33,9 @@ class DevicecraftingServiceProvider extends ServiceProvider
         $this->publishes([
             "${rootDir}/database/seeds/" => database_path('seeds')
         ], 'seeds');
+        // Storage
+        $this->publishes([
+            "${rootDir}/storage/app" => storage_path('app')
+        ], 'storage');
     }
 }

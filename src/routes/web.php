@@ -23,6 +23,9 @@
     // Resources
     Route::group(['namespace' => 'Wadepenistone\Devicecrafting\Http\Controllers\Resources'], function() {
         // Robots
-        Route::resource('robot', 'RobotController');
+        Route::resource('robot', 'RobotController', ['only' => [
+            'index', 'store', 'update', 'destroy'
+        ]]);
+        Route::get('robot/import', 'RobotController@import')->name('robot.import');
     });
 });

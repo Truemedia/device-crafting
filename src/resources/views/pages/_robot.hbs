@@ -58,4 +58,19 @@
             </fieldset>
         </form>
     </div>
+    <div class="tools">
+        <div class="tools__import" v-if="mode == 'import'">
+            <form action="{{route 'robot.import'}}" method="post">
+                <fieldset>
+                    <label for="import">{{_ 'Upload CSV'}}</label>
+                    <input type="file" name="import" id="import" />
+                </fieldset>
+                <fieldset>
+                    {{{ csrf_field }}}
+                    <a v-on:click="cancel()">{{_ 'Cancel'}}</a>
+                    <button type="submit">{{_ 'Import Robots'}}</button>
+                </fieldset>
+            </form>
+        </div>
+    </div>
 </div>
