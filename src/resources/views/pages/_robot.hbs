@@ -60,7 +60,7 @@
     </div>
     <div class="tools">
         <div class="tools__import" v-if="mode == 'import'">
-            <form action="{{route 'robot.import'}}" method="post">
+            <form action="{{route 'robot.import'}}" method="post" enctype="multipart/form-data">
                 <fieldset>
                     <label for="import">{{_ 'Upload CSV'}}</label>
                     <input type="file" name="import" id="import" />

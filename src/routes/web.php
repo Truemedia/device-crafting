@@ -21,11 +21,11 @@
         });
     });
     // Resources
-    Route::group(['namespace' => 'Wadepenistone\Devicecrafting\Http\Controllers\Resources'], function() {
+    Route::group(['namespace' => 'Wadepenistone\Devicecrafting\Http\Controllers\Resources', 'middleware' => 'auth'], function() {
         // Robots
         Route::resource('robot', 'RobotController', ['only' => [
             'index', 'store', 'update', 'destroy'
         ]]);
-        Route::get('robot/import', 'RobotController@import')->name('robot.import');
+        Route::post('robot/import', 'RobotController@import')->name('robot.import');
     });
 });

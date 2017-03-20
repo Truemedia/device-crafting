@@ -2,7 +2,7 @@
 
 use SplFileInfo;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Http\Requests\Request as Request;
+use Illuminate\Http\Request as Request;
 use Wadepenistone\Devicecrafting\Http\Controllers\Extendable\CoreController as Controller;
 use Wadepenistone\Devicecrafting\Models\Robot;
 
@@ -31,29 +31,31 @@ class RobotController extends Controller
 	/**
 	  * Import
 	  */
-	public function import()
+	public function import(Request $request)
 	{
 	    // Open file and declare settings
-	    $csvPath = storage_path('app/test.csv');
-		$fi = new SplFileInfo($csvPath);
-	    $file = $fi->openFile();
-	    $headers = $keys = [];
+		if ($request->hasFile('import') && $request->file('import')->isValid()) {
+		    $csvPath = $request->file('import')->getRealPath();
+			$fi = new SplFileInfo($csvPath);
+		    $file = $fi->openFile();
+		    $headers = $keys = [];
 
-        while (!$file->eof()) {
-          if (empty($keys)) { // Set keys
-            $headers = $keys = $file->fgetcsv();
-		} else { // Import record
-            $values = array_filter($file->fgetcsv(), function($val) { return !is_null($val); });
-            if (!empty($values) && count($values) > 0) {
-				if (count($values) != count($keys)) {
-				dd( compact('keys', 'values'));
+	        while (!$file->eof()) {
+	          if (empty($keys)) { // Set keys
+	            $headers = $keys = $file->fgetcsv();
+			} else { // Import record
+	            $values = array_filter($file->fgetcsv(), function($val) { return !is_null($val); });
+	            if (!empty($values) && count($values) == count($keys)) {
+	            	$robot = new Robot( array_combine($keys, $values) );
+					$robot->owner_id = \Auth::user()->id;
+					$robot->save();
+	            }
+	          }
+	        }
+		} else {
+			// Deal with errors here
+		}
 
-				}
-            	$robot = new Robot( array_combine($keys, $values) );
-				$robot->owner_id = \Auth::user()->id;
-				$robot->save();
-            }
-          }
-        }
+		return redirect()->route('my_account');
 	}
 }
