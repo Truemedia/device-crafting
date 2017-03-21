@@ -1,5 +1,5 @@
 # Device Crafting
-## An online robot battling game built in Laravel 5.4, PHP 7, and React
+## An online robot battling game built in Laravel 5.4, PHP 7, and VueJS
 
 
 ### Prerequisites
